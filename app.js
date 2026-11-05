@@ -7,13 +7,7 @@ import { chargerJson, enregistrerJson } from './src/stockage.js';
 import { OPERATIONS, ajouterOperation, formaterOperation, listerOperations, trouverParId } from './src/registre.js';
 import { filtrerParCulture, filtrerParParcelle, trierParCout, trierParDate } from './src/recherche.js';
 import { coutMinMax, syntheseParParcelle, totalCouts } from './src/synthese.js';
-import {
-  CHAMPS_MODIFIABLES,
-  modifierOperation,
-  parcelleLaPlusCouteuse,
-  supprimerOperation,
-  trierParCoutDecroissant,
-} from './src/bonus.js';
+import {CHAMPS_MODIFIABLES, modifierOperation, parcelleLaPlusCouteuse, supprimerOperation, trierParCoutDecroissant,} from './src/bonus.js';
 
 const FICHIER_DONNEES = 'donnees/operations.json';
 
@@ -47,8 +41,6 @@ async function main() {
       console.log('5. Synthèse des dépenses');
       console.log('6. Supprimer une opération');
       console.log('7. Modifier une opération');
-      console.log('8. Trier par coût décroissant');
-      console.log('9. Afficher la parcelle la plus coûteuse');
       console.log('0. Quitter');
 
       const choix = await demander('Votre choix : ');
@@ -67,9 +59,7 @@ async function main() {
               date: await demander('Date (AAAA-MM-JJ) : '),
               parcelle: await demander('Parcelle : '),
               culture: await demander('Culture : '),
-              operation: await demander(
-                `Opération (${OPERATIONS.join(', ')}) : `,
-              ),
+              operation: await demander(`Opération (${OPERATIONS.join(', ')}) : `,),
               coutFCFA: await demander('Coût en FCFA : '),
             };
 
@@ -95,9 +85,7 @@ async function main() {
             break;
 
           case '3': {
-            const critere = await demander(
-              'Rechercher par (id, parcelle, culture) : ',
-            );
+            const critere = await demander('Rechercher par (id, parcelle, culture) : ',);
 
             if (critere === null) {
               console.log('Au revoir !');
@@ -113,11 +101,7 @@ async function main() {
                 break;
               }
               const operation = trouverParId(operations, id);
-              console.log(
-                operation
-                  ? formaterOperation(operation)
-                  : 'Aucune opération trouvée.',
-              );
+              console.log(operation ? formaterOperation(operation) : 'Aucune opération trouvée.', );
             } else if (critere === 'parcelle') {
               const parcelle = await demander('Parcelle : ');
               if (parcelle === null) {
@@ -125,8 +109,7 @@ async function main() {
                 continuer = false;
                 break;
               }
-              console.log(
-                listerOperations(filtrerParParcelle(operations, parcelle)),
+              console.log(listerOperations(filtrerParParcelle(operations, parcelle)),
               );
             } else if (critere === 'culture') {
               const culture = await demander('Culture : ');
@@ -135,8 +118,7 @@ async function main() {
                 continuer = false;
                 break;
               }
-              console.log(
-                listerOperations(filtrerParCulture(operations, culture)),
+              console.log(listerOperations(filtrerParCulture(operations, culture)),
               );
             } else {
               console.log('Critère inconnu.');

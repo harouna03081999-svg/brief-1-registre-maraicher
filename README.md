@@ -49,8 +49,9 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 
 ## Auteur
 
-✏️ *Prénom et Nom :HAROUNA Bamba
- compte GitHub : 
+**Prénom et Nom** : Harouna Bamba
+ **Compte GitHub** : harouna03081999-svg!
+
  Entraide : avec qui, sur quoi.*
 
 *Ceux qui m'ont aidé :*
