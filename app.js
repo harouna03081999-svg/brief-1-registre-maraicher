@@ -47,8 +47,7 @@ async function main() {
       console.log('5. Synthèse des dépenses');
       console.log('6. Supprimer une opération');
       console.log('7. Modifier une opération');
-      console.log('8. Trier par coût décroissant');
-      console.log('9. Afficher la parcelle la plus coûteuse');
+      
       console.log('0. Quitter');
 
       const choix = await demander('Votre choix : ');
